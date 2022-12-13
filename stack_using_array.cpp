@@ -81,5 +81,6 @@ int main()
     push(s1,99);
     push(s1,11);
     pop(s1);
+    cout<<"the resultant stack is : ";
     traverse(s1);
 }
