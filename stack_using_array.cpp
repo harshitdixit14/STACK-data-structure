@@ -3,6 +3,7 @@ using namespace std;
 #define MAXSIZE 10
 class stack_array{
 public:
+    //checking comment
     int top;
     int capacity;
     int *array;
