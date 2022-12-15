@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define MAXSIZE 10
+#define MAXSIZE 13
 class stack_array{
 public:
     //checking comment
@@ -68,6 +68,10 @@ void traverse(stack_array *s1)
         --(s1->top);
     }
 }
+void delete_stack(stack_array *s1)
+{
+    delete s1->array;
+}
 int main()
 {
     stack_array *s1=create_stack();
@@ -83,5 +87,10 @@ int main()
     push(s1,11);
     pop(s1);
     cout<<"the resultant stack is : ";
+    //traverse(s1);
+    push(s1,54);
+    push(s1,56);
+    push(s1,78);
+    delete_stack(s1);
     traverse(s1);
 }
