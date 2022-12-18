@@ -31,11 +31,25 @@ void pop(linked_list_stack **top)
 void traverse(linked_list_stack *top)
 {
     linked_list_stack *temp;
+    if(top==NULL)
+    {
+        cout<<"stack is empty!!";
+    }
     while(top!=NULL)
     {
         temp=top;
         cout<<top->data<<" ";
         top=top->next;
+        delete temp;
+    }
+}
+void delete_stack(linked_list_stack **top)
+{
+    linked_list_stack *temp;
+    while((*top)!=NULL)
+    {
+        temp=*top;
+        *top=(*top)->next;
         delete temp;
     }
 }
@@ -48,5 +62,10 @@ int main()
     push(&top,76);
     push(&top,8);
     pop(&top);
+    cout<<"resultant stack is :";
+    traverse(top);
+    cout<<endl;
+    delete_stack(&top);
+    cout<<"resultant stack after deleting stack is :";
     traverse(top);
 }
