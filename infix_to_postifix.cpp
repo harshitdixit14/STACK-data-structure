@@ -108,6 +108,7 @@ string infix_to_postfix(string s)
         {
             result+=s[i];
         }
+        //a+(b*c(d/e^f)*g)*h)
         else if(s[i]==')')
         {
             while(s1->array[s1->top]!='(')
@@ -148,6 +149,6 @@ string infix_to_postfix(string s)
 }
 int main()
 {
-    string s="A+B*(C^D-E)^(F+G*H)-I";
+    string s="(A+(B*C(D/E^F)*G)*H)";
     cout<<infix_to_postfix(s);
 }
