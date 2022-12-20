@@ -74,10 +74,6 @@ void delete_stack(stack_array *s1)
 }
 int prec(char a)
 {
-    if(a=='(')
-    {
-        return 4;
-    }
     if(a=='^')
     {
         return 3;
@@ -99,6 +95,9 @@ string infix_to_postfix(string s)
     string result="";
     //(A+B)+(C-D)
     //a+b*(c^d-e)^(f+g*h)-i
+    //A+B*(C^D-E)^(F+G*H)-I
+    //stack ---- +*(^
+    //result ---- ABCD
     while(i<s.length())
     {
         if(s[i]=='(')
@@ -124,7 +123,7 @@ string infix_to_postfix(string s)
             {
                 push(s1,s[i]);
             }
-            else if(prec(s[i])>prec(s1->array[s1->top]) && s1->top!=-1)
+            else if((prec(s[i])>prec(s1->array[s1->top]) && s1->top!=-1)||(s1->array[s1->top]=='('))
             {
                 push(s1,s[i]);
             }
@@ -149,7 +148,6 @@ string infix_to_postfix(string s)
 }
 int main()
 {
-    string s;
-    cin>>s;
+    string s="A+B*(C^D-E)^(F+G*H)-I";
     cout<<infix_to_postfix(s);
 }
