@@ -103,9 +103,9 @@ string infix_to_prefix(string s)
         {
             result+=s[i];
         }
-        else if(s[i]==')')
+        else if(s[i]=='(')
         {
-            while(s1->array[s1->top]!='(')
+            while(s1->array[s1->top]!=')')
             {
                 result+=s1->array[s1->top];
                 pop(s1);
