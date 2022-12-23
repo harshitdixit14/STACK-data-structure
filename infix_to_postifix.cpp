@@ -149,6 +149,7 @@ string infix_to_postfix(string s)
 }
 int main()
 {
-    string s="(A+(B*C(D/E^F)*G)*H)";
+    string s;
+    cin>>s;
     cout<<infix_to_postfix(s);
 }
